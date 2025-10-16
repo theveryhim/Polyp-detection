@@ -1,5 +1,12 @@
 # Polyp detection 
 
+## Data: PolypDB
+- **WLI** (White Light Imaging): Standard endoscopic view
+- **NBI** (Narrow Band Imaging): Enhanced vascular pattern visualization
+- **LCI** (Linked Color Imaging): Improved color contrast
+- **FICE** (Flexible Spectral Imaging Color Enhancement): Spectral enhancement
+- **BLI** (Blue Laser Imaging): Surface structure enhancement
+
 In this repo, we are going to employ Machine learning methods to detect
 colon tissues(polyp).
 
@@ -65,6 +72,14 @@ This implementation targets **medical image analysis**, specifically **polyp det
   <figcaption style="text-align: center;">GroundTruth/Prediction on WLI</figcaption>
 </p>
 
+```markdown
+=== Test Set Metrics on trained modality(WLI)===
+mAP50: 0.9138
+mAP50-95: 0.7264
+Precision: 0.8923
+Recall: 0.8278
+```
+
 ### Inference: NBI-LCI-FICE-BLI
 <p align="center">
     <img src="images/confusion_matrix_normalizedv2.png" alt="Descriptive Alt Text" class="fit-width-image">
@@ -73,4 +88,72 @@ This implementation targets **medical image analysis**, specifically **polyp det
   <img src="images/val_batch0_labelsv2.jpg" alt="Image 1" style="width: 48%; height: auto;">
   <img src="images/val_batch0_predv2.jpg" alt="Image 2" style="width: 48%; height: auto;">
   <figcaption style="text-align: center;">GroundTruth/Prediction on NBI-LCI-FICE-BLI</figcaption>
+</p>
+
+```markdown
+=== NBI-LCI-FICE-BLI Metrics on unseen modalities===
+mAP50: 0.6947
+mAP50-95: 0.4972
+Precision: 0.8402
+Recall: 0.5672
+```
+
+## YOLOv11-Train
+This project implements a robust polyp detection system using YOLO11 (You Only Look Once version 11) for medical image analysis. The model is trained on *WLI* modality.
+### Training Configuration
+
+#### Model Architecture
+- **Base Model**: YOLO11 from Ultralytics
+- **Input Resolution**: 640×640 pixels
+- **Number of Classes**: 1 (polyp)
+- **Backbone**: CSPDarkNet
+- **Neck**: PANet
+- **Head**: Multi-scale detection
+
+#### Hyperparameters
+- **Epochs**: 100
+- **Batch Size**: 16
+- **Initial Learning Rate**: 0.001
+- **Optimizer**: Auto-selected
+- **Early Stopping Patience**: 10 epochs
+
+#### Data Augmentation
+- **Mosaic**: 0.8 probability
+- **MixUp**: 0.1 probability
+- **Copy-Paste**: 0.1 probability
+- **Horizontal Flip**: 0.5 probability
+- **Color Augmentation**: HSV adjustments
+- **Spatial Transformations**: Rotation, translation, scaling, shearing
+
+#### Detection Parameters
+- **Training Confidence Threshold**: 0.1
+- **IoU Threshold**: 0.4
+- **Augmentation Focus**: Small object detection
+
+### Inference: WLI 
+```markdown
+=== Test Set Metrics on trained modality(WLI)===
+mAP50: 0.9282
+mAP50-95: 0.7067
+Precision: 0.8799
+Recall: 0.8638
+```
+<p align="center">
+    <img src="images/YOLOv11-FineTune-1.png" alt="Descriptive Alt Text" class="fit-width-image">
+    <img src="images/YOLOv11-FineTune-2.png" alt="Descriptive Alt Text" class="fit-width-image">
+    <img src="images/YOLOv11-FineTune-3.png" alt="Descriptive Alt Text" class="fit-width-image">
+</p>
+
+### Inference: NBI-LCI-FICE-BLI
+```markdown
+=== NBI-LCI-FICE-BLI Metrics on unseen modalities===
+mAP50: 0.7619
+mAP50-95: 0.5383
+Precision: 0.8357
+Recall: 0.6675
+```
+<p align="center">
+    <img src="images/YOLOv11-FineTune-4.png" alt="Descriptive Alt Text" class="fit-width-image">
+    <img src="images/YOLOv11-FineTune-5.png" alt="Descriptive Alt Text" class="fit-width-image">
+    <img src="images/YOLOv11-FineTune-6.png" alt="Descriptive Alt Text" class="fit-width-image">
 </p>
