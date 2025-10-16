@@ -52,6 +52,7 @@ This implementation targets **medical image analysis**, specifically **polyp det
 
 <p align="center">
     <img src="images/results.png" alt="Descriptive Alt Text" class="fit-width-image">
+    <figcaption style="text-align: center;">Train metrix</figcaption>
 </p>
 
 ### Inference: WLI(Training modality)
