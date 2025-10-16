@@ -3,7 +3,7 @@
 In this repo, we are going to employ Machine learning methods to detect
 colon tissues(polyp).
 
-## YOLOv9-FineTune: [PolypDB](https://arxiv.org/abs/2409.00045)
+## YOLOv9-FineTune: 
 - Train
 ```markdown
 YOLOv9m summary (fused): 151 layers, 20,013,715 parameters, 0 gradients, 76.5 GFLOPs
