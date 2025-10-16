@@ -105,13 +105,12 @@ This project implements a robust polyp detection system using YOLO11 (You Only L
 #### Model Architecture
 - **Base Model**: YOLO11 from Ultralytics
 - **Input Resolution**: 640×640 pixels
-- **Number of Classes**: 1 (polyp)
 - **Backbone**: CSPDarkNet
 - **Neck**: PANet
 - **Head**: Multi-scale detection
 
 #### Hyperparameters
-- **Epochs**: 100
+- **Epochs**: 50
 - **Batch Size**: 16
 - **Initial Learning Rate**: 0.001
 - **Optimizer**: Auto-selected
