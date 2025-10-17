@@ -1,14 +1,17 @@
 # Polyp detection 
 
-## Data: PolypDB
+In this repo, we are going to employ Machine learning methods to detect
+colon tissues(polyp).
+
+## Data
+### PolypDB
 - **WLI** (White Light Imaging): Standard endoscopic view
 - **NBI** (Narrow Band Imaging): Enhanced vascular pattern visualization
 - **LCI** (Linked Color Imaging): Improved color contrast
 - **FICE** (Flexible Spectral Imaging Color Enhancement): Spectral enhancement
 - **BLI** (Blue Laser Imaging): Surface structure enhancement
-
-In this repo, we are going to employ Machine learning methods to detect
-colon tissues(polyp).
+### REAL-Colon
+REAL-Colon provides 60 full-resolution, real-world colonoscopy videos (2.7M frames) from multiple centers, with 350k expert-annotated polyp bounding boxes. Includes clinical metadata, acquisition details, and histopathology. Designed for robust CADe/CADx development and benchmarking. Released for non-commercial research. See the paper for details.
 
 ## YOLOv9-FineTune: 
 - Train
