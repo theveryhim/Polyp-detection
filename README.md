@@ -76,8 +76,8 @@ This implementation targets **medical image analysis**, specifically **polyp det
   <figcaption style="text-align: center;">Metrics of prediction on WLI</figcaption>
 </p>
 <p align="center" style="display: flex; flex-direction: row ;gap: 4%">
-  <img src="images/val_batch0_labels.jpg" alt="Image 1" style="width: 48%; height: auto;">
-  <img src="images/val_batch0_pred.jpg" alt="Image 2" style="width: 48%; height: auto;">
+  <img src="images/val_batch0_labelsv1.jpg" alt="Image 1" style="width: 48%; height: auto;">
+  <img src="images/val_batch0_predv1.jpg" alt="Image 2" style="width: 48%; height: auto;">
   <figcaption style="text-align: center;">GroundTruth/Prediction on WLI</figcaption>
 </p>
 
@@ -112,6 +112,21 @@ mAP50-95: 0.4972
 Precision: 0.8402
 Recall: 0.5672
 ```
+### Inference: REAL-Colon
+<p align="center" style="display: flex; flex-direction: row; gap: 2%">
+  <img src="images/I2_R_curve.png" alt="Image 1" style="width: 49%; height: auto;">
+  <img src="images/I2_PR_curve.png" alt="Image 2" style="width: 49%; height: auto;">
+</p>
+<p align="center" style="display: flex; flex-direction: row; gap: 2%">
+  <img src="images/I2_P_curve.png" alt="Image 2" style="width: 49%; height: auto;">
+  <img src="images/I2_F1_curve.png" alt="Image 2" style="width: 49%; height: auto;">
+  <figcaption style="text-align: center;">Metrics of prediction on REAL-Colon</figcaption>
+</p>
+<p align="center" style="display: flex; flex-direction: row ;gap: 4%">
+  <img src="images/val_batch2_labelsv3.jpg" alt="Image 1" style="width: 48%; height: auto;">
+  <img src="images/val_batch2_predv3.jpg" alt="Image 2" style="width: 48%; height: auto;">
+  <figcaption style="text-align: center;">GroundTruth/Prediction on REAL-Colon</figcaption>
+</p>
 
 ## YOLOv11-Train
 This project implements a robust polyp detection system using YOLO11 (You Only Look Once version 11) for medical image analysis. The model is trained on *WLI* modality.
@@ -171,3 +186,18 @@ Recall: 0.6675
     <img src="images/YOLOv11-FineTune-5.png" alt="Descriptive Alt Text" class="fit-width-image">
     <img src="images/YOLOv11-FineTune-6.png" alt="Descriptive Alt Text" class="fit-width-image">
 </p>
+
+### Inference: REAL-Colon
+<p align="center">
+    <img src="images/YOLOv11-FineTune-7.png" alt="Descriptive Alt Text" class="fit-width-image">
+    <img src="images/YOLOv11-FineTune-8.png" alt="Descriptive Alt Text" class="fit-width-image">
+    <img src="images/YOLOv11-FineTune-9.png" alt="Descriptive Alt Text" class="fit-width-image">
+</p>
+
+```markdown
+=== Metrics on unseen Dataset: REAL-Colon ===
+mAP50: 0.3415
+mAP50-95: 0.1922
+Precision: 0.4986
+Recall: 0.3413
+```
