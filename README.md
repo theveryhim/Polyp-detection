@@ -1,14 +1,17 @@
 # Polyp detection 
 
-## Data: PolypDB
+In this repo, we are going to employ Machine learning methods to detect
+colon tissues(polyp).
+
+## Data
+### PolypDB
 - **WLI** (White Light Imaging): Standard endoscopic view
 - **NBI** (Narrow Band Imaging): Enhanced vascular pattern visualization
 - **LCI** (Linked Color Imaging): Improved color contrast
 - **FICE** (Flexible Spectral Imaging Color Enhancement): Spectral enhancement
 - **BLI** (Blue Laser Imaging): Surface structure enhancement
-
-In this repo, we are going to employ Machine learning methods to detect
-colon tissues(polyp).
+### REAL-Colon
+REAL-Colon provides 60 full-resolution, real-world colonoscopy videos (2.7M frames) from multiple centers, with 350k expert-annotated polyp bounding boxes. Includes clinical metadata, acquisition details, and histopathology. Designed for robust CADe/CADx development and benchmarking. Released for non-commercial research. See the paper for details.
 
 ## YOLOv9-FineTune: 
 - Train
@@ -63,8 +66,12 @@ This implementation targets **medical image analysis**, specifically **polyp det
 </p>
 
 ### Inference: WLI(Training modality)
-<p align="center">
-    <img src="images/confusion_matrix_normalized.png" alt="Descriptive Alt Text" class="fit-width-image">
+<p align="center" style="display: flex; flex-direction: row">
+  <img src="images/T_R_curve.png" alt="Image 1" style="width: 25%; height: auto;">
+  <img src="images/T_PR_curve.png" alt="Image 2" style="width: 25%; height: auto;">
+  <img src="images/T_P_curve.png" alt="Image 2" style="width: 25%; height: auto;">
+  <img src="images/T_F1_curve.png" alt="Image 2" style="width: 25%; height: auto;">
+  <figcaption style="text-align: center;">Metrics of prediction on WLI</figcaption>
 </p>
 <p align="center" style="display: flex; flex-direction: row ;gap: 4%">
   <img src="images/val_batch0_labels.jpg" alt="Image 1" style="width: 48%; height: auto;">
@@ -81,8 +88,12 @@ Recall: 0.8278
 ```
 
 ### Inference: NBI-LCI-FICE-BLI
-<p align="center">
-    <img src="images/confusion_matrix_normalizedv2.png" alt="Descriptive Alt Text" class="fit-width-image">
+<p align="center" style="display: flex; flex-direction: row">
+  <img src="images/I1_R_curve.png" alt="Image 1" style="width: 25%; height: auto;">
+  <img src="images/I1_PR_curve.png" alt="Image 2" style="width: 25%; height: auto;">
+  <img src="images/I1_P_curve.png" alt="Image 2" style="width: 25%; height: auto;">
+  <img src="images/I1_F1_curve.png" alt="Image 2" style="width: 25%; height: auto;">
+  <figcaption style="text-align: center;">Metrics of prediction on NBI-LCI-FICE-BLI</figcaption>
 </p>
 <p align="center" style="display: flex; flex-direction: row ;gap: 4%">
   <img src="images/val_batch0_labelsv2.jpg" alt="Image 1" style="width: 48%; height: auto;">
