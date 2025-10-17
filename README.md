@@ -90,9 +90,9 @@ Recall: 0.8278
 ```
 
 ### Inference: NBI-LCI-FICE-BLI
-<p align="center" style="display: flex; flex-direction: row">
-  <img src="images/I1_R_curve.png" alt="Image 1" style="width: 50%; height: auto;">
-  <img src="images/I1_PR_curve.png" alt="Image 2" style="width: 50%; height: auto;">
+<p align="center" style="display: flex; flex-direction: row; gap: 2%">
+  <img src="images/I1_R_curve.png" alt="Image 1" style="width: 49%; height: auto;">
+  <img src="images/I1_PR_curve.png" alt="Image 2" style="width: 49%; height: auto;">
 </p>
 <p align="center" style="display: flex; flex-direction: row">
   <img src="images/I1_P_curve.png" alt="Image 2" style="width: 50%; height: auto;">
