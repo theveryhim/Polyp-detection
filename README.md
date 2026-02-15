@@ -128,7 +128,7 @@ Recall: 0.5672
   <figcaption style="text-align: center;">GroundTruth/Prediction on REAL-Colon</figcaption>
 </p>
 
-## YOLOv11-Train
+## YOLOv11-FineTune
 This project implements a robust polyp detection system using YOLO11 (You Only Look Once version 11) for medical image analysis. The model is trained on *WLI* modality.
 ### Training Configuration
 
@@ -200,4 +200,80 @@ mAP50: 0.3415
 mAP50-95: 0.1922
 Precision: 0.4986
 Recall: 0.3413
+```
+
+
+## YOLOv11-FineTune-LoRA
+Now, we turn to implementing bigger YOLO models using efficiency tricks. More specifically we mimic a LoRA(Low rank adaptation) style fine-tunning here: 
+### Training Configuration
+
+#### Model Architecture
+- **Base Model**: YOLO11(L) from Ultralytics
+- **Input Resolution**: 640×640 pixels
+- **Backbone**: CSPDarkNet
+- **Neck**: PANet
+- **Head**: Multi-scale detection
+
+#### Hyperparameters
+- **Epochs**: 50
+- **Batch Size**: 8
+- **Freeze**: 10 ---> LoRA imitation
+- **Initial Learning Rate**: 0.001
+- **Optimizer**: Auto-selected
+- **Early Stopping Patience**: 10 epochs
+
+#### Data Augmentation
+- **Mosaic**: 0.8 probability
+- **MixUp**: 0.1 probability
+- **Copy-Paste**: 0.1 probability
+- **Horizontal Flip**: 0.5 probability
+- **Color Augmentation**: HSV adjustments
+- **Spatial Transformations**: Rotation, translation, scaling, shearing
+
+#### Detection Parameters
+- **Training Confidence Threshold**: 0.1
+- **IoU Threshold**: 0.4
+- **Augmentation Focus**: Small object detection
+
+### Inference: WLI 
+```markdown
+=== Test Set Metrics ===
+mAP50: 0.9351
+mAP50-95: 0.7629
+Precision: 0.9007
+Recall: 0.8628
+```
+<p align="center">
+    <img src="images/YOLOv11-FineTune-LoRA-1.png" alt="Descriptive Alt Text" class="fit-width-image">
+    <img src="images/YOLOv11-FineTune-LoRA-2.png" alt="Descriptive Alt Text" class="fit-width-image">
+    <img src="images/YOLOv11-FineTune-LoRA-3.png" alt="Descriptive Alt Text" class="fit-width-image">
+</p>
+
+### Inference: NBI-LCI-FICE-BLI
+```markdown
+=== Test Set Metrics ===
+mAP50: 0.7985
+mAP50-95: 0.6086
+Precision: 0.8608
+Recall: 0.6895
+```
+<p align="center">
+    <img src="images/YOLOv11-FineTune-LoRA-4.png" alt="Descriptive Alt Text" class="fit-width-image">
+    <img src="images/YOLOv11-FineTune-LoRA-5.png" alt="Descriptive Alt Text" class="fit-width-image">
+    <img src="images/YOLOv11-FineTune-LoRA-6.png" alt="Descriptive Alt Text" class="fit-width-image">
+</p>
+
+### Inference: REAL-Colon
+<p align="center">
+    <img src="images/YOLOv11-FineTune-LoRA-7.png" alt="Descriptive Alt Text" class="fit-width-image">
+    <img src="images/YOLOv11-FineTune-LoRA-8.png" alt="Descriptive Alt Text" class="fit-width-image">
+    <img src="images/YOLOv11-FineTune-LoRA-9.png" alt="Descriptive Alt Text" class="fit-width-image">
+</p>
+
+```markdown
+=== Metrics on unseen Dataset: REAL-Colon ===
+mAP50: 0.3665
+mAP50-95: 0.1925
+Precision: 0.4906
+Recall: 0.3745
 ```
