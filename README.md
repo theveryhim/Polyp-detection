@@ -3,8 +3,6 @@
 In this repo, we are going to employ Machine learning methods to detect
 colon tissues(polyp).
 
-Here is a comprehensive summary table consolidating the performance metrics for all models and datasets provided in the README text.
-
 ## Summary
 
 | Model | Dataset / Modality | Precision (P) | Recall (R) | mAP50 | mAP50-95 |
@@ -300,7 +298,6 @@ mAP50-95: 0.1925
 Precision: 0.4906
 Recall: 0.3745
 ```
-<<<<<<< HEAD
 
 ## YOLOv12-FineTune
 This time, We will try the most recent version of YOLO released by `Ultralytics` which is YOLOv12(s). 
